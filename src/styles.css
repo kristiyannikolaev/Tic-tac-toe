@@ -4,6 +4,7 @@
 
 :root {
     --cell-size: 100px;
+    --mark-size: cal(var(var(--cell-size)) * 0.9);
 }
 
 body {
@@ -16,12 +17,33 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
+    justify-items: center;
+    align-items: center;
     grid-template-columns: repeat(3, auto);
 }
 
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: black;
-    border: 1px solid white;
+    border: 1px solid black;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+    border-bottom: none;
 }
