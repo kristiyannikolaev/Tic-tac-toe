@@ -4,7 +4,7 @@
 
 :root {
     --cell-size: 100px;
-    --mark-size: cal(var(var(--cell-size)) * 0.9);
+    --mark-size: calc((var(--cell-size)) * 0.9);
 }
 
 body {
@@ -26,6 +26,10 @@ body {
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .cell:first-child,
@@ -46,4 +50,21 @@ body {
 .cell:nth-child(8),
 .cell:nth-child(7) {
     border-bottom: none;
+}
+
+.cell.x::before,
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * 0.15);
+    height: calc(var(--mark-size));
+    background-color: black;
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
 }
